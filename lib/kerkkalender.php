@@ -123,21 +123,24 @@ function kerkkalender($van = NULL, $tot = NULL, $filter = 2, $bisdom = 65535)
 		$tot = $van;
 	}
 
-	$van_date = getdate($van);
-	$tot_date = getdate($tot);
-
-	$j = [];
-	for ($y = $van_date["year"]; $y < $tot_date["year"] + 1; $y++) {
-		$j += json_decode(jaarkalender($y, $filter, $bisdom), true);
-	}
-
-    $jj = [];
+	$dates = [];
 	for ($d = $van; $d <= $tot; $d = strtotime("+1 day", $d))
 	{
-		$vandaag = date('Y-m-d',$d);
-        $jj[$vandaag] = $j[$vandaag];
-    }
-    return json_encode($jj);
+		$dates []= date('Y-m-d',$d);
+	}
+	return kerkkalender_list($dates, $filter, $bisdom);
+}
+
+function kerkkalender_list($dates, $filter = 2, $bisdom = 65535) {
+	$jaren = [];
+	$kalender = [];
+	foreach ($dates as $date) {
+		if (!isset($jaren[$date])) {
+			$jaren += json_decode(jaarkalender(intval($date) /* enkel eerste getal == jaar */, $filter, $bisdom), true);
+		}
+		$kalender[$date] = $jaren[$date];
+	}
+	return json_encode($kalender);
 }
 
 function jaarkalender($y, $filter, $bisdom)

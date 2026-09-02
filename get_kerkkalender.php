@@ -20,19 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] == "OPTIONS") {
 
     include 'lib/kerkkalender.php';
 
-    $start = time();
-    if (isset($_GET['start']))
-        $start = strtotime($_GET['start']);
-    $end = $start;
-    if (isset($_GET['end']))
-        $end = strtotime($_GET['end']);
     $filter = 2;
     if (isset($_GET['filter']))
         $filter = intval($_GET['filter']);
     $bisdom = 65535;
     if (isset($_GET['bisdom']))
         $bisdom = intval($_GET['bisdom']);
-    $cal = kerkkalender($start, $end, $filter, $bisdom);
+
+    if (isset($_GET['d']) && is_array($_GET['d'])) { // in URL: d[]=2026-01-01&d[]=2026-01-02 etc
+        $dates = $_GET['d'];
+        $cal = kerkkalender_list($dates, $filter, $bisdom);
+    } else {
+        $start = time();
+        if (isset($_GET['start']))
+            $start = strtotime($_GET['start']);
+        $end = $start;
+        if (isset($_GET['end']))
+            $end = strtotime($_GET['end']);
+        $cal = kerkkalender($start, $end, $filter, $bisdom);
+    }
 
     print $cal;
 }
