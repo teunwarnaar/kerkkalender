@@ -28,7 +28,7 @@ febr.	2	2	224	Opdracht v/d Heer in de tempel	xxx
 	2	6	229	HH. Paulus Miki en gezellen	1244								
 	2	6	232	Breda:  H. Amandus									
 	2	6	229	Breda: HH. Paulus Miki en gezellen									
-	2	8	235	H. Hieronymus Emiliani	1245								
+	2	8	235	H. Hiëronymus Emiliani	1245								
 	2	8	547	H. Josephina Bakhita									
 	2	10	236	H. Scholastica	1245								
 	2	11	237	H. Maria van Lourdes	1246	1246	1246						
@@ -207,7 +207,7 @@ sept.	9	3	415	H. Gregorius de Grote
 	9	28	439	H. Wenceslaus									
 	9	28	440	HH. Laurentius Ruiz en gezellen									
 	9	29	441	HH. Michaël, Gabriël en Rafaël									
-	9	30	442	H. Hieronymus									
+	9	30	442	H. Hiëronymus									
 okt.	10	1	443	H. Teresia v/h Kind Jezus									
 	10	2	447	HH. Engelbewaarders									
 	10	3	445	Haarlem: H. Bavo									
